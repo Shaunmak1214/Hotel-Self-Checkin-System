@@ -9,14 +9,64 @@ Title : Hotel
 #include<iostream>
 #include<string.h>
 #include<string>
+#include<vector>
 
 using namespace std;
 
+//Declared Base Class
 class Hotel {
+
+    protected:
+    string fileName;
+    string name, codeNumber;
 
     public:
 
-    Hotel(){
+
+};
+
+class roomCount: public Hotel {
+
+    private:
+
+
+    public:
+    void roomCounting(int roomCount) {
+ 
+        cout << "Checking for Room " << roomCount+1 << endl;
+
+    }
+
+};
+
+class roomCheck: public Hotel {
+
+    private:
+
+    public:
+    //constructor
+    roomCheck() {
+
+        //declaration of filename that we will use later on
+        fileName = "rooms.txt";
+
+    }
+
+    //this function is to check whether the user had made a reservation or not
+    void roomChecking() {
+
+        cout << "===== Room Checking =====" << endl;
+
+        cout << "Your Name :" << endl;
+        getline(cin, name);
+
+        cout << "Good Day, " << name << endl;
+        cout << "=======================" << endl;
+
+        cout << "Please key in the code number we had sent earlier right after your reservation" << endl;
+        cout << "Code Number :" << endl;
+        cin.ignore();
+        getline(cin, codeNumber);
 
 
 
@@ -26,31 +76,32 @@ class Hotel {
 
 int main() {
 
-    string name;
-    double roomId, rooms;
-
     Hotel h;
+    int rooms;
 
     cout << "How many rooms you had reserved ?" << endl;
-    cin >> rooms;
+    cin >> rooms; 
+
+    roomCount* rcount = new roomCount [rooms];
 
         if(rooms > 0) {
 
-            cout << "===== Room Checking for Today =====" << endl;
+            for(int i = 0; i < rooms ; i ++){
 
-            cout << "Your Name :" << endl;
-            getline(cin, name);
+                rcount[i].roomCounting(i);
 
-            cout << "Room Id :" << endl;
-            cin >> roomId;
+            }
 
-        }else{
+        }else {
 
-            cout << "Room number cannot be less than 0" << endl;
+            cout << "Input cannot be a negative number" << endl;
+            cout << "Have a nice day" << endl;
+            delete[] rcount;
             return 0;
 
         }
 
+    delete[] rcount;
     return 0;
 
 }
