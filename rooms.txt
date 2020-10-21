@@ -1,1 +1,6 @@
-name code date roomNumber
+|-----+----------|
+| code|RoomNumber|
+|-----+----------|
+|   12|       123|
+|   13|       321|
+|   14|       Mak|
