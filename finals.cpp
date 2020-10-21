@@ -1,7 +1,7 @@
 /******************************
 Name : Mak Yen Wei
 Id : 1181203334
-Section : TC01
+Section : TC02
 Title : Hotel
 *****************************/
 
@@ -10,7 +10,6 @@ Title : Hotel
 #include<iostream>
 #include<string.h>
 #include<string>
-#include<vector>
 #include<fstream>
 #include<regex>
 #include<stdio.h> 
@@ -26,6 +25,9 @@ class Hotel {
     string fileName, name, codeNumber, roomNumber;
 
     public:
+    //default constructor
+    Hotel() {}
+
     //virtual function declration
     virtual void roomChecking() {}
 
@@ -52,7 +54,7 @@ class roomCheck: public Hotel {
     //this function is to check whether the user had made a reservation or not
     void roomChecking() {
 
-        cout << "\n===== Room Checking =====" << endl;
+        cout << "\n===== Hotel Room Checking =====" << endl;
 
         cout << "Your Name :";
         fflush(stdin);
@@ -61,7 +63,10 @@ class roomCheck: public Hotel {
         cout << "\n\nGood Day, " << name << endl;
         cout << "=========================" << endl;
 
-        cout << "\nPlease key in the code number we had sent earlier right after your reservation" << endl;
+        cout << "\n\n**********************************************************************************" << endl;
+        cout << "* Please key in the code number we had sent earlier right after your reservation *" << endl;
+        cout << "**********************************************************************************" << endl;
+
         cout << "Code Number :";
         getline(cin, codeNumber);
 
@@ -81,9 +86,9 @@ class roomCheck: public Hotel {
                         if(fileCode == codeNumber) {
 
                             roomNumber = regex_replace(line.substr(7, 10),regex("\\s"),"");
-                            cout << "\n\n**************************************************" << endl;
+                            cout << "\n\n****************************************" << endl;
                             cout << "Your room number will be : " << roomNumber << endl;
-                            cout << "**************************************************" << endl;
+                            cout << "****************************************" << endl;
                             cout << "\nCheck In Successfull" << endl;
                             cout << "Have a nice day" << endl;
                             codeNF = 0;
@@ -128,8 +133,11 @@ int main() {
 
     int rooms;
 
+    cout << "\n\n==========================================" << endl;
+    cout << " WELCOME TO THE XXX HOTEL CHECK-IN SYSTEM " << endl;
+    cout << "==========================================" << endl;
     //Get user input
-    cout << "How many rooms you had reserved ?" << endl;
+    cout << "\nHow many rooms you had reserved ?";
     cin >> rooms;
 
     //dynamic array allocation for Roomcount Object
