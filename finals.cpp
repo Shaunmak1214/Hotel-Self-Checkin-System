@@ -57,15 +57,16 @@ class roomCheck: public Hotel {
         cout << "\n===== Hotel Room Checking =====" << endl;
 
         cout << "Your Name :";
+        //Clear system buffer 
         fflush(stdin);
         getline(cin, name);
 
         cout << "\n\nGood Day, " << name << endl;
         cout << "=========================" << endl;
 
-        cout << "\n\n**********************************************************************************" << endl;
-        cout << "* Please key in the code number we had sent earlier right after your reservation *" << endl;
-        cout << "**********************************************************************************" << endl;
+        cout << "\n\n********************************************************************************************" << endl;
+        cout << "* Please key in the (5-digit) code number we had sent earlier right after your reservation *" << endl;
+        cout << "********************************************************************************************" << endl;
 
         cout << "Code Number :";
         getline(cin, codeNumber);
@@ -73,8 +74,10 @@ class roomCheck: public Hotel {
         ifstream fcheck;
         fcheck.open(fileName, ios::in);
 
+            //Get line from file
             while(getline(fcheck, line)){
 
+                //counter increment is to skip the first 3 lines of the txt file which is the header part
                 if(counter++ > 2) {
 
                     //extract data from code column only
@@ -133,9 +136,9 @@ int main() {
 
     int rooms;
 
-    cout << "\n\n==========================================" << endl;
-    cout << " WELCOME TO THE XXX HOTEL CHECK-IN SYSTEM " << endl;
-    cout << "==========================================" << endl;
+    cout << "\n\n===============================================" << endl;
+    cout << " WELCOME TO THE XXX HOTEL SELF CHECK-IN SYSTEM " << endl;
+    cout << "===============================================" << endl;
     //Get user input
     cout << "\nHow many rooms you had reserved ?";
     cin >> rooms;
